@@ -3,7 +3,7 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {IconBtnAddPhoto, IconBtnRemovePhoto} from '../../../assets';
 import {colors, fonts} from '../../../utils';
 
-export default function Profile({type, name, desc, photo, onPress}) {
+export default function Profile({type, name, desc, photo, onPress, gender}) {
   return (
     <View style={styles.container}>
       {!type && (

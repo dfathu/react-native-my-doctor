@@ -25,11 +25,12 @@ export default function ChattingDoctor({navigation, route}) {
   };
 
   useEffect(() => {
+    getDataUserFromLocal();
     const chatId = `${user.uid}_${dataDoctor.data.uid}`;
     const urlFirebaseChat = `chatting/${chatId}/allchat/`;
 
-    getDataUserFromLocal();
     onValue(ref(Fire('database'), urlFirebaseChat), snapshot => {
+      console.log('test urlfirebaseChat', urlFirebaseChat);
       if (snapshot.exists()) {
         const dataSnapshot = snapshot.val();
         const allDataChat = [];
@@ -82,6 +83,7 @@ export default function ChattingDoctor({navigation, route}) {
 
     push(ref(Fire('database'), urlFirebase), data)
       .then(res => {
+        console.log('lihat isi data', data);
         setChatContent('');
         // set history for user
         set(ref(Fire('database'), urlMessageUser), dataHistoryChatForUser);

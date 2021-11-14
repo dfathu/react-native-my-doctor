@@ -24,7 +24,7 @@ const Messages = ({navigation,route}) => {
         const data = [];
 
         const promises = await Object.keys(oldData).map(async key => {
-          const urlUidDoctor = `doctors/${oldData[key].uidPatner}`;
+          const urlUidDoctor = `doctors/${oldData[key].uidPartner}`;
           const dbRef = ref(Fire('database'));
           const detailDoctor = await get(child(dbRef,urlUidDoctor));
           data.push({
@@ -35,7 +35,7 @@ const Messages = ({navigation,route}) => {
         });
 
         await Promise.all(promises);
-        console.log('new data history', data);
+        // console.log('new data history', data);
         setHistoryChat(data);
       }
     });
@@ -47,6 +47,7 @@ const Messages = ({navigation,route}) => {
         <Text style={styles.title}>Messages</Text>
         <Gap height={16} />
         {historyChat.map(chat => {
+          // console.log('test isi chat', chat);
           const dataDoctor = {
             id: chat.detailDoctor.uid,
             data: chat.detailDoctor,

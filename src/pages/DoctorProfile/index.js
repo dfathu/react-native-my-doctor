@@ -10,7 +10,7 @@ export default function DoctorProfile({navigation,route}) {
     <View style={styles.page}>
       <Header title="Doctor Profile" onPress= {() => navigation.goBack()}/>
       <Gap height={10} />
-      <Profile type={dataDoctor.data.gender} name={dataDoctor.data.fullName} desc={dataDoctor.data.profession} photo={{uri: dataDoctor.data.photo}} />
+      <Profile gender={dataDoctor.data.gender} name={dataDoctor.data.fullName} desc={dataDoctor.data.profession} photo={{uri: dataDoctor.data.photo}} />
       <ProfileItem label="Alumnus" value={dataDoctor.data.university}/>
       <ProfileItem label="Tempat Praktik" value={dataDoctor.data.hospital_address} />
       <ProfileItem label="No. STR" value={dataDoctor.data.str_number} />
